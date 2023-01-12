@@ -17,15 +17,14 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
   var newPass = ``;
   var passLength = prompt(`Please input how long you would like your password to be. It must be between 8 and 128 characters long.`);
- 
-  if (passLength < 8 || passLength > 128) {
+  parseInt(passLength, 10)
+  console.log(passLength)
+
+  while (passLength < 8 || passLength > 128) {
     var passLength = prompt(`Error. Please enter a valid number. It must be between 8 and 128 characters long.`);
-    confirm('Your response has been recorded.');
-  } else {
-    confirm('Your response has been recorded.');
-  }
+  } 
+  confirm('Your response has been recorded.');
   
-  // var criteriaCharacterTypes = prompt(`What character types would you like included in your password? Available options are: !, ", #, $, %, &, ', (, ), *, @, ^, [, ].`);
   var passLowerCase = confirm(`Would you like your password to contain lowercase letters?`);
   confirm('Your response has been recorded.');
   
@@ -40,7 +39,7 @@ function generatePassword() {
     confirm('Your response has been recorded.');
   }
 
-  var passSpecChar  = prompt(`Please select a special character to use in your password. Available options are: !, ", #, $, %, &, ', (, ), *, @, ^, [, ], ?, -.`);
+  var passSpecChar = prompt(`Please select a special character to use in your password. Available options are: !, ", #, $, %, &, ', (, ), *, @, ^, [, ], ?, -.`);
   if (passSpecChar != `!` || passSpecChar != `"` || passSpecChar != `#` || passSpecChar != `$` 
                           || passSpecChar != `%` || passSpecChar != `&` || passSpecChar != "'" 
                           || passSpecChar != `(` || passSpecChar != `)` || passSpecChar != `*`
