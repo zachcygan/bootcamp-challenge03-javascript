@@ -49,12 +49,12 @@ function generatePassword() {
     var passSpecChar  = prompt(`Error. Please select a valid response. Available options are: !, ", #, $, %, &, ', (, ), *, @, ^, [, ], ?, -.`);
   } 
 
-  // function generateChars() {
-  //   var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-  //   var randomLetters = alphabet[Math.floor(Math.random() * alphabet.length)]
-  //   console.log(randomLetters)
+  function generateChars() {
+    var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    var randomLetters = alphabet[Math.floor(Math.random() * alphabet.length)]
+    console.log(randomLetters)
 
-  // }
+  }
 
   return newPass;
 }
