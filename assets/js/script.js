@@ -33,23 +33,21 @@ function generatePassword() {
   
   var passNumeric = confirm(`Would you like to have numeric values in your password?`);
 
-  var passSpecChar = prompt(`Please select a special character to use in your password. Available options are: !, ", #, $, %, &, ', (, ), *, @, ^, [, ], ?, -.`);
-  if (passSpecChar != `!` || passSpecChar != `"` || passSpecChar != `#` || passSpecChar != `$` 
-                          || passSpecChar != `%` || passSpecChar != `&` || passSpecChar != "'" 
-                          || passSpecChar != `(` || passSpecChar != `)` || passSpecChar != `*`
-                          || passSpecChar != `@` || passSpecChar != `^` || passSpecChar != `[`
-                          || passSpecChar != `]` || passSpecChar != `?` || passSpecChar != `-`) {
-    var passSpecChar  = prompt(`Error. Please select a valid response. Available options are: !, ", #, $, %, &, ', (, ), *, @, ^, [, ], ?, -.`);
+  const passSpecChar = prompt(`Please select a special character to use in your password. Available options are: !, ", #, $, %, &, ', (, ), *, @, ^, [, ], ?, -.`);
   
-    generateChars();
-  } 
+//   if (passSpecChar != `!` || passSpecChar != `"` || passSpecChar != `#` || passSpecChar != `$` 
+//                           || passSpecChar != `%` || passSpecChar != `&` || passSpecChar != "'" 
+//                           || passSpecChar != `(` || passSpecChar != `)` || passSpecChar != `*`
+//                           || passSpecChar != `@` || passSpecChar != `^` || passSpecChar != `[`
+//                           || passSpecChar != `]` || passSpecChar != `?` || passSpecChar != `-`) {
+// var passSpecChar  = prompt(`Error. Please select a valid response. Available options are: !, ", #, $, %, &, ', (, ), *, @, ^, [, ], ?, -.`);
+//   }
 
-  function generateChars() {
-    var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    var randomLetters = alphabet[Math.floor(Math.random() * alphabet.length)]
-    console.log(randomLetters)
-
+  if (!passSpecChar.includes(`!`) || !passSpecChar.includes(`"`) || !passSpecChar.includes(`#`) || !passSpecChar.includes(`#`) ||
+      !passSpecChar.includes(`$`) || !passSpecChar.includes(`%`) || !passSpecChar.includes(`&`) || !passSpecChar.includes(`'`) || 
+      !passSpecChar.includes(`(`) || !passSpecChar.includes(`)`) || !passSpecChar.includes(`*`) || !passSpecChar.includes(`@`) || 
+      !passSpecChar.includes(`^`) || !passSpecChar.includes(`[`) || !passSpecChar.includes(`?`) || !passSpecChar.includes(`-`)) {
+    passSpecChar  = prompt(`Error. Please select a valid response. Available options are: !, ", #, $, %, &, ', (, ), *, @, ^, [, ], ?, -.`);
   }
 
-  return newPass;
 }
