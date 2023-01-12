@@ -16,9 +16,9 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
   var newPass = ``;
+
   var passLength = prompt(`Please input how long you would like your password to be. It must be between 8 and 128 characters long.`);
-  parseInt(passLength, 10)
-  console.log(passLength)
+  passLength = parseInt(passLength)
 
   while (passLength < 8 || passLength > 128) {
     var passLength = prompt(`Error. Please enter a valid number. It must be between 8 and 128 characters long.`);
