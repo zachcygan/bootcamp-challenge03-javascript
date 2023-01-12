@@ -32,12 +32,6 @@ function generatePassword() {
   confirm('Your response has been recorded.');
   
   var passNumeric = confirm(`Would you like to have numeric values in your password?`);
-  if (passNumeric) {
-    var passNumericValue = prompt(`How many numeric values would you like in your passoword?`);
-    confirm('Your response has been recorded.');
-  } else {
-    confirm('Your response has been recorded.');
-  }
 
   var passSpecChar = prompt(`Please select a special character to use in your password. Available options are: !, ", #, $, %, &, ', (, ), *, @, ^, [, ], ?, -.`);
   if (passSpecChar != `!` || passSpecChar != `"` || passSpecChar != `#` || passSpecChar != `$` 
@@ -46,6 +40,8 @@ function generatePassword() {
                           || passSpecChar != `@` || passSpecChar != `^` || passSpecChar != `[`
                           || passSpecChar != `]` || passSpecChar != `?` || passSpecChar != `-`) {
     var passSpecChar  = prompt(`Error. Please select a valid response. Available options are: !, ", #, $, %, &, ', (, ), *, @, ^, [, ], ?, -.`);
+  
+    generateChars();
   } 
 
   function generateChars() {
