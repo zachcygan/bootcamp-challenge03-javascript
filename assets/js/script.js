@@ -57,6 +57,9 @@ function generatePassword() {
     stringContainer += characterSpecialChar;
   }
 
+  // Found on https://www.geeksforgeeks.org/how-to-generate-a-random-password-using-javascript/
+  // Used as a template for generating a password. Used their layout and changed to my variables
+  // 
   for (var i = 0; i < passLength; i++) {
     var randomNumber = Math.floor(Math.random()*stringContainer.length)
     newPass += stringContainer.charAt(randomNumber)
