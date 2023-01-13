@@ -1,13 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
 var characterLower = `abcdefghijklmnopqrstuvwxyz`
 var characterUpper = `ABCDEFGHIJKLMNOPQRSTUVWXYZ`
 var characterNumber = `0123456789`
-var characterAll = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-?[]"`
-var characterNoSpecialChar = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`
-var characterNoNumber = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()-?[]"`
-var characterNoCaps = `abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-?[]"`
-var characterNoLower = `ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-?[]"`
+var characterSpecialChar = `!@#$%^&*()-?[]"`
 
 // Write password to the #password input
 function writePassword() {
@@ -27,8 +24,8 @@ function generatePassword() {
   var passLength = prompt(`Please input how long you would like your password to be. It must be between 8 and 128 characters long.`);
   passLength = parseInt(passLength)
 
-  while (passLength < 8 || passLength > 128) {
-    passLength = prompt(`Error. Please enter a valid number. It must be between 8 and 128 characters long.`);
+  if (!(passLength >= 8 && passLength <= 128)) {
+    return alert(`Error. Please enter a valid number. It must be between 8 and 128 characters long.`);
   } 
   confirm('Your response has been recorded.');
   
@@ -42,24 +39,34 @@ function generatePassword() {
 
   var passSpecChar = confirm(`Would you like special characters in your password.`);
 
-  if (passLowerCase && passUpperCase && passNumeric && passSpecChar) {
-    for (var i = 0; i < passLength; i++) {
-      var randomNumber = Math.floor(Math.random()*passLength+1)
-      newPass += characterAll.charAt(randomNumber)
-    }
+  var stringContainer = ''
 
-    return newPass;
+  if (passLowerCase) {
+    stringContainer += characterLower;
+  } 
+
+  if (passUpperCase) {
+    stringContainer += characterUpper;
   }
 
-  if (passLowerCase && passUpperCase && passNumeric && !passSpecChar) {
-    for (var i = 0; i < passLength; i++) {
-      var randomNumber = Math.floor(Math.random()*passLength+1)
-      newPass += characterNoSpecialChar.charAt(randomNumber)
-    }
+  if (passNumeric) {
+    stringContainer += characterNumber;
   }
 
+  if (passSpecChar) {
+    stringContainer += characterSpecialChar;
+  }
 
-  // console.log(newPass)
+  for (var i = 0; i < passLength; i++) {
+    var randomNumber = Math.floor(Math.random()*stringContainer.length)
+    newPass += stringContainer.charAt(randomNumber)
+  }
+
+  if (!passLowerCase && !passUpperCase && !passNumeric && !passSpecChar) {
+    return alert(`Error: Please select at least 1 of the previous criteria.`)
+  }
+
+  return newPass;
 }
 
 
