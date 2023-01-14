@@ -36,8 +36,10 @@ function generatePassword() {
   confirm('Your response has been recorded.');
   
   var passNumeric = confirm(`Would you like to have numeric values in your password?`);
+  confirm('Your response has been recorded.');
 
   var passSpecChar = confirm(`Would you like special characters in your password.`);
+  confirm('Your response has been recorded.');
 
   var stringContainer = ''
 
