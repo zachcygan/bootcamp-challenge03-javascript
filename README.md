@@ -2,7 +2,7 @@
 
 ## Description
 
-My motivation for this project is to make a password generator. It is very simple to use and prompts the user for different criteria they would like in their password and generates a password that fits that criteria. The user must input at least one criteria and give a valid password length. 
+My motivation for this project is to make a password generator. It is very simple to use and prompts the user for different criteria they would like in their password and generates a password that fits that criteria. The user must input at least one criteria and give a valid password length. These passwords can be used for different websites because it is randomly generated.
 
 ## Installation
 
